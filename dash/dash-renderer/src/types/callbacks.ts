@@ -17,6 +17,11 @@ export interface ICallbackDefinition {
     no_output?: boolean;
     websocket?: boolean;
     persistent?: boolean;
+    // Server-inferred: true when the callback is a (streaming) generator. Read
+    // only by the scheduler, to keep long-lived streams out of the concurrent
+    // HTTP-request budget. The client still detects streaming at runtime from
+    // the response (NDJSON content type / stream+done markers), not from this.
+    stream?: boolean;
 }
 
 export interface ICallbackProperty {
@@ -109,6 +114,9 @@ export type CallbackResponseData = {
     cancel?: ICallbackProperty[];
     dist?: any;
     sideUpdate?: any;
+    // Streaming callbacks: terminal frame marker and mid-stream error.
+    done?: boolean;
+    error?: {message?: string};
 };
 
 export type SideUpdateOutput = {
