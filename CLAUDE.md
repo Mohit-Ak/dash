@@ -12,6 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 4. `.ai/COMPONENTS.md` - Component system, generation, resources
 5. `.ai/TESTING.md` - Testing framework, fixtures, patterns, type compliance
 6. `.ai/TROUBLESHOOTING.md` - Common errors and solutions
+7. `.ai/PERFORMANCE.md` - Benchmark harness, profiling, and performance findings
 
 ## Project Overview
 
